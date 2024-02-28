@@ -1,9 +1,8 @@
-
-import { ReactNode } from "react"
 import { auth } from "@/auth.config"
-import { Appbar } from "@/components/home/Appbar"
+import { Divider } from "@nextui-org/react"
+import { Appbar } from "@/components/shared/Appbar"
 
-export default async function HomeLayout({ children }: { children: ReactNode }) {
+export default async function RolLayout({ children }: { children: React.ReactNode }) {
 
   const session = await auth()
   const isAuthenticated = !!session?.user
@@ -14,6 +13,7 @@ export default async function HomeLayout({ children }: { children: ReactNode }) 
     <>
       <div className="">
         <Appbar isAuthenticated={isAuthenticated} image={image} name={name}/>
+        <Divider />
         {children}
       </div>
     </>

@@ -5,7 +5,7 @@ export interface User {
   lastName: string;
   nickname?: string;
   email: string;
-  password: string;
+  password?: string;
   createdAt?: string;
   updatedAt?: string;
   deletedAt?: string;

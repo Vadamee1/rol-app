@@ -1,12 +1,8 @@
-import { PATHHOME } from "@/constants/paths/home"
 import { Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react"
 import Link from "next/link"
 import { IoHomeOutline } from "react-icons/io5"
-import { CustomDropdown } from "../custom/CustomDropdown"
-import { CustomAvatar } from "../custom/CustomAvatar"
-import { AVATAROPTIONS } from "@/constants/home/dropdownOptions"
-import { Session } from "next-auth"
 import { AvatarDropdown } from "./AvatarDropdown"
+import { PATHHOME } from "@/constants/paths/home"
 
 interface Props {
   isAuthenticated: boolean
