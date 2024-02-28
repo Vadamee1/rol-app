@@ -1,12 +1,11 @@
-import { LoginCard } from "@/components/auth/login/LoginCard";
+import { CustomCard } from "@/components/custom/CustomCard";
+import { Header } from "@/components/auth/login/Header";
+import { Form } from "@/components/auth/login/Form";
+import { Footer } from "@/components/auth/login/Footer";
 
 export default function Login () {
 
   return (
-    <>
-      <div className="">
-        <LoginCard />
-      </div>
-    </>
+    <CustomCard header={<Header/>} body={<Form/>} footer={<Footer/>}/>
   )
 }

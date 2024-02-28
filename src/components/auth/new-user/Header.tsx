@@ -4,7 +4,9 @@ export const Header = () => {
 
   return (
     <>
-      <h1 className={`${textCards.className} ml-1`}>Ingresar</h1>
+      <h1 className={`${textCards.className} ml-1`}>
+        Registrate
+      </h1>
     </>
   )
 }

@@ -8,13 +8,14 @@ datasource db {
 }
 
 model User {
-  id             Int       @id @default(autoincrement())
+  id             String    @id @default(uuid())
   name           String    @db.VarChar(25)
   secondName     String?   @db.VarChar(25) @map("second_name")
   lastName       String    @db.VarChar(25) @map("last_name")
   nickname       String?   @db.VarChar(25)
   email          String    @db.VarChar(50) @unique
   password       String    @db.VarChar(100)
+  image          String?   @db.VarChar(255)
   createdAt      DateTime  @default(now()) @map("created_at")
   updatedAt      DateTime  @updatedAt @map("updated_at")
   deletedAt      DateTime? @map("deleted_at")

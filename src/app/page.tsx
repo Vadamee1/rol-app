@@ -1,3 +1,6 @@
+import { redirect } from "next/navigation";
+import { PATHHOME } from "@/constants/paths/home";
+
 export default function Root() {
-  return <div>Root page</div>
+  redirect(PATHHOME)
 }

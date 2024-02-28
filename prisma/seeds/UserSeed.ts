@@ -4,7 +4,7 @@ import users from "../data/users";
 export default async function UserSeed() {
   try {
     await prisma.$transaction(
-      users.map(({ name, secondName, lastName, nickname, email, password }) =>
+      users.map(({ name, secondName, lastName, nickname, email, password, image }) =>
         prisma.user.upsert({
           create: {
             name,
@@ -16,6 +16,7 @@ export default async function UserSeed() {
           },
           update: {
             password,
+            image
           },
           where: { email },
         })

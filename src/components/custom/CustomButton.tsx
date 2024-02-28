@@ -6,20 +6,18 @@ interface Props {
   isIconOnly?: boolean
   size: "sm" | "md" | "lg"
   color?: "default" | "warning" | "primary" | "danger"
-  link?: any
-  href?: string
+  type?: "submit" | "button"
   variant?: "solid" | "bordered" | "ghost"
 }
 
-export const CustomButton = ({children, isIconOnly, size, color, link, href, variant}: Props) => {
+export const CustomButton = ({children, isIconOnly, size, color, type, variant}: Props) => {
 
   return (
     <Button
-      as={link ? link : ""}
       isIconOnly={isIconOnly ? isIconOnly : false}
+      type={type}
       size={size}
       color={color}
-      href={href}
       variant={variant ? variant : "solid"}
     >
       {children}
