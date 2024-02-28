@@ -29,7 +29,7 @@ export const CustomCard = ({header, body, footer, isBlurred, isPressable}: Props
       }
       { 
         footer ? 
-          <CardFooter className="flex justify-center">
+          <CardFooter className="">
             {footer}
           </CardFooter>
         : "" 

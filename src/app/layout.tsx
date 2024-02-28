@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import { ReactNode } from "react"
 import { inter } from "@/config/fonts"
-import { Providers } from "./providers"
 import "./globals.css"
+import { Providers } from "./providers"
 
 export const metadata: Metadata = {
   title: "Rol App",
