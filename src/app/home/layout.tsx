@@ -1,8 +1,7 @@
 
+import { ReactNode } from "react"
 import { auth } from "@/auth.config"
 import { Appbar } from "@/components/home/Appbar"
-import { useSession } from "next-auth/react"
-import { ReactNode } from "react"
 
 export default async function HomeLayout({ children }: { children: ReactNode }) {
 
