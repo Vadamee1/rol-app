@@ -10,3 +10,10 @@ export interface User {
   updatedAt?: string;
   deletedAt?: string;
 }
+
+export interface CreateUserType {
+  name: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
