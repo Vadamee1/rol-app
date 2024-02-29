@@ -8,6 +8,7 @@ import prisma from '../prisma';
 export const authConfig: NextAuthConfig = {
   pages: {
     signIn: '/auth/login',
+    newUser: '/auth/new-user'
   },
   providers: [
     Credentials({
@@ -44,4 +45,4 @@ export const authConfig: NextAuthConfig = {
   }
 };
 
-export const { signIn, signOut, auth } = NextAuth(authConfig)
+export const { signIn, signOut, auth, handlers } = NextAuth(authConfig)

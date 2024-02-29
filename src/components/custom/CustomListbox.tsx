@@ -11,7 +11,7 @@ interface Props {
 export const CustomListbox = ({items}: Props) => {
 
   return (
-    <Listbox variant="bordered">
+    <Listbox variant="bordered" aria-label="Custom listbox">
       {
         items.map((item) => (
           <ListboxItem key={item.key} color={item.color} href={item.href} as={Link}>
