@@ -4,7 +4,7 @@ import { ReactNode } from "react"
 interface Props {
   children?: string | ReactNode
   isIconOnly?: boolean
-  size: "sm" | "md" | "lg"
+  size?: "sm" | "md" | "lg"
   color?: "default" | "warning" | "primary" | "danger"
   type?: "submit" | "button"
   variant?: "solid" | "bordered" | "ghost"

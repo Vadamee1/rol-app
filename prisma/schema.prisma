@@ -20,5 +20,35 @@ model User {
   updatedAt      DateTime  @updatedAt @map("updated_at")
   deletedAt      DateTime? @map("deleted_at")
 
+  sectionRBA SectionRBA[]
+
   @@map("user")
+}
+
+model SectionRBA {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(25)
+  userId    String    @map("user_id")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accordionRBA AccordionRBA[]
+
+  @@map("section_rba")
+}
+
+model AccordionRBA {
+  id             Int       @id @default(autoincrement())
+  title          String    @db.VarChar(25)
+  description    String    @db.VarChar(500)
+  sectionRBAId   Int       @map("section_rba_id")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+  deletedAt      DateTime? @map("deleted_at")
+
+  sectionRBA SectionRBA @relation(fields: [sectionRBAId], references: [id], onDelete: Cascade)
+
+  @@map("accordion_rba")
 }
