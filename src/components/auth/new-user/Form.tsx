@@ -34,7 +34,6 @@ export const Form = () => {
     onSubmit: async (values) => {
       const resp = await newUser(values)
       if(resp.severity === 'error') {
-        console.log(resp.text)
         toast.error(resp.text)
       }
       if(resp.severity === "success") {
