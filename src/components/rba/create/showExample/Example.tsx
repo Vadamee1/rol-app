@@ -14,7 +14,9 @@ export const Example = ({sectionsWithAccordions}: Props) => {
         {sectionsWithAccordions.map((section) => (
           <Tab key={section.id} title={section.name}>
             {section.accordionRBA.map((acc) => (
-              <CustomAccordion key={acc.id} title={acc.title} content={acc.description}/>
+              <div key={acc.id}>
+                <CustomAccordion title={acc.title} content={acc.description}/>
+              </div>
             ))}
           </Tab>
         ))}

@@ -1,16 +1,15 @@
 import { Accordion, AccordionItem } from "@nextui-org/react"
 
 interface Props {
-  key: number
   title: string
   content: string
 }
 
-export const CustomAccordion = ({key, title, content}: Props) => {
+export const CustomAccordion = ({title, content}: Props) => {
 
   return (
     <Accordion variant="bordered">
-      <AccordionItem key={key} title={title}>
+      <AccordionItem title={title}>
         {content}
       </AccordionItem>
     </Accordion>
