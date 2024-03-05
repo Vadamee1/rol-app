@@ -1,13 +1,9 @@
-import { createAccordion } from "@/actions/rba/accordion/create-accordion"
 import { CustomButton } from "@/components/custom/CustomButton"
-import { MessageInterface } from "@/interfaces/common/message"
 import { SectionOptions, SectionWithAccordions } from "@/interfaces/rba/create/section"
 import { Input, Select, SelectItem, Textarea } from "@nextui-org/react"
 import { useFormik } from "formik"
 import { Dispatch, SetStateAction } from "react"
-import { toast } from "react-toastify"
 import * as yup from "yup"
-
 
 interface Props {
   sections: SectionOptions[]
@@ -15,7 +11,7 @@ interface Props {
   setSectionsWithAccordions: Dispatch<SetStateAction<SectionWithAccordions[]>>
 }
 
-export const FormAccordionCard = ({sections,userId, setSectionsWithAccordions}: Props) => {
+export const EditFormModal = ({sections, userId, setSectionsWithAccordions}: Props) => {
 
   const formik = useFormik({
     initialValues: {
@@ -29,25 +25,8 @@ export const FormAccordionCard = ({sections,userId, setSectionsWithAccordions}: 
       sectionRBAId: yup.number().required('Debes elegir a que sección pertenece.')
     }),
     onSubmit: async (values) => {
-      const resp = await createAccordion(values, userId)
-      setSectionsWithAccordions(resp.data)
-      handleToast(resp)
-      handleSetNull()
     }
   })
-
-  const handleSetNull = () => {
-    formik.values.sectionRBAId = 0
-    formik.values.title = ""
-    formik.values.description = ""
-  }
-
-  const handleToast = ({text, severity}: MessageInterface) => {
-    if (severity === "error") {
-      toast.error(text)
-    }
-    toast.success(text)
-  }
 
   return (
     <>

@@ -1,18 +1,17 @@
 'use server'
 
-import prisma from "../../../../../prisma"
-import { AccordionRBA } from "@/interfaces/rba/create/accordion"
+import prisma from "../../../../prisma"
 
-export const createAccordion = async ({sectionRBAId, title, description}: AccordionRBA, userId?: string) => {
+export const updateSection = async (id: number | undefined, name: string,  userId: string | undefined,) => {
+
   try {
-    await prisma.accordionRBA.create({
+    await prisma.sectionRBA.update({
+      where: {id},
       data: {
-        sectionRBAId: Number(sectionRBAId),
-        title,
-        description
+        name
       }
     })
-    
+
     const data = await prisma.sectionRBA.findMany({
       where: {userId},
       select: {
@@ -25,11 +24,14 @@ export const createAccordion = async ({sectionRBAId, title, description}: Accord
             description: true
           }
         }
+      },
+      orderBy: {
+        createdAt: "asc"
       }
     })
 
     return {
-      text: "Acordeón creado correctamente.",
+      text: "Seccón actualziada correctamente.",
       severity: "success",
       data
     }

@@ -1,33 +1,29 @@
-'use client'
-
-import { createSection } from "@/actions/rba/section/create-section"
-import { CustomButton } from "@/components/custom/CustomButton"
+import { updateSection } from "@/actions/rba/section/update-section"
 import { MessageInterface } from "@/interfaces/common/message"
-import { SectionOptions, SectionWithAccordions } from "@/interfaces/rba/create/section"
-import { Input } from "@nextui-org/react"
+import { SectionOptions, SectionRBA, SectionWithAccordions } from "@/interfaces/rba/create/section"
+import { Button, Input } from "@nextui-org/react"
 import { useFormik } from "formik"
 import { Dispatch, SetStateAction } from "react"
 import { toast } from "react-toastify"
-import * as yup from "yup"
 
 interface Props {
-  userId?: string
+  section: SectionRBA
+  userId: string | undefined
+  onClose: () => void
   setSections: Dispatch<SetStateAction<SectionOptions[]>>
   setSectionsWithAccordions: Dispatch<SetStateAction<SectionWithAccordions[]>>
 }
 
-export const FormSectionCard = ({userId, setSections, setSectionsWithAccordions}: Props) => {
+export const FormEditModal = ({section, userId, onClose, setSections, setSectionsWithAccordions}: Props) => {
 
   const formik = useFormik({
     initialValues: {
-      userId: userId ? userId : "",
-      name: ""
+      userId,
+      id: section.id,
+      name: section.name
     },
-    validationSchema: yup.object().shape({
-      name: yup.string().required('Debes ingresar un nombre')
-    }),
     onSubmit: async (values) => {
-      const resp = await createSection(values)
+      const resp = await updateSection(values.id, values.name, userId)
       setSections(resp.data)
       setSectionsWithAccordions(resp.data)
       handleToast(resp)
@@ -45,7 +41,7 @@ export const FormSectionCard = ({userId, setSections, setSectionsWithAccordions}
     }
     toast.success(text)
   }
-  
+
   return (
     <>
       <form onSubmit={formik.handleSubmit}>
@@ -61,13 +57,14 @@ export const FormSectionCard = ({userId, setSections, setSectionsWithAccordions}
             errorMessage={formik.errors.name}
           />
           <div className="flex justify-end">
-            <CustomButton
+            <Button
               color="primary"
               variant="ghost"
               type="submit"
+              onPress={onClose}
             >
-              Crear
-            </CustomButton>
+              Guardar
+            </Button>
           </div>
         </div>
       </form>

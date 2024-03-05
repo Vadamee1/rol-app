@@ -1,8 +1,8 @@
 export interface AccordionRBA {
-  id?: string
+  id?: number
   title: string
   description: string
-  sectionRBAId: number
+  sectionRBAId?: number
   createdAt?: string
   updatedAt?: string
   deletedAt?: string
