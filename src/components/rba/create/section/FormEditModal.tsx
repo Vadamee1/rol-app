@@ -1,13 +1,13 @@
 import { updateSection } from "@/actions/rba/section/update-section"
 import { MessageInterface } from "@/interfaces/common/message"
-import { SectionOptions, SectionWithAccordions } from "@/interfaces/rba/create/section"
+import { SectionOptions, SectionRBA, SectionWithAccordions } from "@/interfaces/rba/create/section"
 import { Button, Input } from "@nextui-org/react"
 import { useFormik } from "formik"
 import { Dispatch, SetStateAction } from "react"
 import { toast } from "react-toastify"
 
 interface Props {
-  section: SectionOptions
+  section: SectionRBA
   userId: string | undefined
   onClose: () => void
   setSections: Dispatch<SetStateAction<SectionOptions[]>>

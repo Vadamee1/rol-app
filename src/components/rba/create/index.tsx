@@ -59,7 +59,7 @@ export const CreateRulesPage = ({ userId, sectionOptions, sectionsWithAccordions
                     userId={userId}
                     setSections={setSections}
                     setSectionsWithAccordions={setSectionsWithAccordions}
-                    sections={sections}
+                    sections={exampleAccordions}
                   />
                 } 
               />

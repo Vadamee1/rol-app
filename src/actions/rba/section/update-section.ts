@@ -2,7 +2,7 @@
 
 import prisma from "../../../../prisma"
 
-export const updateSection = async (id: number, name: string,  userId: string | undefined,) => {
+export const updateSection = async (id: number | undefined, name: string,  userId: string | undefined,) => {
 
   try {
     await prisma.sectionRBA.update({

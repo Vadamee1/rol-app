@@ -2,7 +2,7 @@
 
 import prisma from "../../../../prisma";
 
-export const deleteSection = async (id: number, userId: string | undefined) => {
+export const deleteSection = async (id: number | undefined, userId: string | undefined) => {
   try {
 
     await prisma.sectionRBA.delete({

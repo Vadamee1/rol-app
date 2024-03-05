@@ -2,11 +2,11 @@ import { CustomModal } from "@/components/custom/CustomModal";
 import { Button, Tooltip, useDisclosure } from "@nextui-org/react"
 import { IoTrashOutline } from "react-icons/io5"
 import { BodyDeleteModal } from "./BodyDeleteModal";
-import { SectionOptions, SectionWithAccordions } from "@/interfaces/rba/create/section";
+import { SectionOptions, SectionRBA, SectionWithAccordions } from "@/interfaces/rba/create/section";
 import { Dispatch, SetStateAction } from "react";
 
 interface Props {
-  section: SectionOptions
+  section: SectionRBA
   userId: string | undefined
   setSections: Dispatch<SetStateAction<SectionOptions[]>>
   setSectionsWithAccordions: Dispatch<SetStateAction<SectionWithAccordions[]>>

@@ -1,7 +1,7 @@
 export interface SectionRBA {
-  id?: string
+  id?: number
   name: string
-  userId: string
+  userId?: string
   createdAt?: string
   updatedAt?: string
   deletedAt?: string
@@ -15,7 +15,6 @@ export interface SectionOptions {
 export interface SectionWithAccordions {
   id: number
   name: string
-  accordionRBA: AccordionsRBA[]
 }
 
 interface AccordionsRBA {

@@ -1,5 +1,5 @@
 import { COLUMNSRBATABLE } from "@/constants/create-rba/ColumnsTableEdit"
-import { SectionOptions, SectionWithAccordions } from "@/interfaces/rba/create/section"
+import { SectionOptions, SectionRBA, SectionWithAccordions } from "@/interfaces/rba/create/section"
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react"
 import { Dispatch, SetStateAction, useCallback } from "react"
 import { EditModal } from "../section/EditModal"
@@ -7,8 +7,8 @@ import { DeleteModal } from "../section/DeleteModal"
 import { OptionsAccordion } from "../accordion/OptionsAccordion"
 
 interface Props {
-  sections: SectionOptions[]
-  sectionsWithAccordions: SectionOptions[]
+  sections: SectionWithAccordions[]
+  sectionsWithAccordions: SectionWithAccordions[]
   userId: string | undefined
   setSections: Dispatch<SetStateAction<SectionOptions[]>>
   setSectionsWithAccordions: Dispatch<SetStateAction<SectionWithAccordions[]>>
@@ -16,8 +16,8 @@ interface Props {
 
 export const RBATable = ({sectionsWithAccordions, userId, setSections, setSectionsWithAccordions, sections}: Props) => {
 
-  const renderCell = useCallback((section: SectionOptions, columnKey: React.Key) => {
-    const cellValue = section[columnKey as keyof SectionOptions]
+  const renderCell = useCallback((section: SectionWithAccordions, columnKey: React.Key) => {
+    const cellValue = section[columnKey as keyof SectionWithAccordions]
 
     switch (columnKey) {
       case "section":
@@ -42,6 +42,7 @@ export const RBATable = ({sectionsWithAccordions, userId, setSections, setSectio
               userId={userId}
             />
             <OptionsAccordion
+              sectionId={section.id}
             />
           </div>
         )

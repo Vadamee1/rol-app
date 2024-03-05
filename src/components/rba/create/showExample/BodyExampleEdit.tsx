@@ -4,7 +4,7 @@ import { RBATable } from "./RBATable"
 import { Dispatch, SetStateAction } from "react"
 
 interface Props {
-  sections: SectionOptions[]
+  sections: SectionWithAccordions[]
   sectionsWithAccordions: SectionWithAccordions[]
   isEditable: boolean
   userId: string | undefined
