@@ -1,14 +1,20 @@
 import { COLUMNSRBATABLE } from "@/constants/create-rba/ColumnsTableEdit"
 import { SectionOptions, SectionWithAccordions } from "@/interfaces/rba/create/section"
-import { Button, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, Tooltip, useDisclosure } from "@nextui-org/react"
+import { Button, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, Tooltip } from "@nextui-org/react"
 import { Dispatch, SetStateAction, useCallback } from "react"
-import { IoPencilOutline, IoTrashOutline } from "react-icons/io5"
+import { IoTrashOutline } from "react-icons/io5"
+import { EditModal } from "../section/EditModal"
+import { DeleteModal } from "../section/DeleteModal"
+import { OptionsAccordion } from "../accordion/OptionsAccordion"
 
 interface Props {
   sectionsWithAccordions: SectionOptions[]
+  userId: string | undefined
+  setSections: Dispatch<SetStateAction<SectionOptions[]>>
+  setSectionsWithAccordions: Dispatch<SetStateAction<SectionWithAccordions[]>>
 }
 
-export const RBATable = ({sectionsWithAccordions}: Props) => {
+export const RBATable = ({sectionsWithAccordions, userId, setSections, setSectionsWithAccordions}: Props) => {
 
   const renderCell = useCallback((section: SectionOptions, columnKey: React.Key) => {
     const cellValue = section[columnKey as keyof SectionOptions]
@@ -23,16 +29,20 @@ export const RBATable = ({sectionsWithAccordions}: Props) => {
       case "actions":
         return (
           <div className="flex">
-            <Tooltip content="Editar sección">
-              <Button isIconOnly variant="light"  color="warning">
-                <IoPencilOutline/>
-              </Button>
-            </Tooltip>
-            <Tooltip content="Eliminar sección">
-              <Button isIconOnly variant="light" color="danger">
-                <IoTrashOutline/>
-              </Button>
-            </Tooltip>
+            <EditModal
+              section={section}
+              userId={userId}
+              setSections={setSections}
+              setSectionsWithAccordions={setSectionsWithAccordions}
+            />
+            <DeleteModal
+              section={section}
+              setSections={setSections}
+              setSectionsWithAccordions={setSectionsWithAccordions}
+              userId={userId}
+            />
+            <OptionsAccordion
+            />
           </div>
         )
       default:

@@ -1,7 +1,6 @@
 'use client'
 
 import { CustomCard } from "@/components/custom/CustomCard"
-import { HeaderSectionCard } from "./section/HeaderSectionCard"
 import { FormSectionCard } from "./section/FormSectionCard"
 import { HeaderAccordionCard } from "./accordion/HeaderAccordionCard"
 import { FormAccordionCard } from "./accordion/FormAccordionCard"
@@ -27,7 +26,7 @@ export const CreateRulesPage = ({ userId, sectionOptions, sectionsWithAccordions
       <div className="flex gap-5 w-full">
         <div className="flex flex-col gap-3 basis-2/5">
           <CustomCard 
-            header={<HeaderSectionCard/>} 
+            header={<p>Comienza creando las secciones en las que se dividirá:</p>} 
             body={
               <FormSectionCard 
                 userId={userId} 
@@ -53,7 +52,14 @@ export const CreateRulesPage = ({ userId, sectionOptions, sectionsWithAccordions
             <div className="w-full basis-3/5">
               <CustomCard
                 header={<HeaderShowExample isEditable={isEditable} setIsEditable={setIsEditable}/>} 
-                body={<BodyExampleEdit sectionsWithAccordions={exampleAccordions} isEditable={isEditable}/>
+                body={
+                  <BodyExampleEdit
+                    sectionsWithAccordions={exampleAccordions}
+                    isEditable={isEditable} 
+                    userId={userId}
+                    setSections={setSections}
+                    setSectionsWithAccordions={setSectionsWithAccordions}
+                  />
                 } 
               />
             </div>

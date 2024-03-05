@@ -1,7 +1,7 @@
 'use server'
 
-import prisma from "../../../../../prisma"
 import { AccordionRBA } from "@/interfaces/rba/create/accordion"
+import prisma from "../../../../prisma"
 
 export const createAccordion = async ({sectionRBAId, title, description}: AccordionRBA, userId?: string) => {
   try {
@@ -25,6 +25,9 @@ export const createAccordion = async ({sectionRBAId, title, description}: Accord
             description: true
           }
         }
+      },
+      orderBy: {
+        createdAt: "asc"
       }
     })
 

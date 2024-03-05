@@ -1,6 +1,6 @@
 'use server'
 
-import prisma from "../../../../../prisma"
+import prisma from "../../../../prisma";
 
 export const getSections = async (userId?: string) => {
   try {
@@ -17,6 +17,9 @@ export const getSections = async (userId?: string) => {
             description: true
           }
         }
+      },
+      orderBy: {
+        createdAt: "asc"
       }
     })
 

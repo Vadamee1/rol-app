@@ -1,5 +1,6 @@
-import { getSections } from "@/actions/rba/create/section/get-sections";
+
 import { sectionOptions } from "@/actions/rba/options/sectionOptions";
+import { getSections } from "@/actions/rba/section/get-sections";
 import { auth } from "@/auth.config";
 import { CreateRulesPage } from "@/components/rba/create";
 

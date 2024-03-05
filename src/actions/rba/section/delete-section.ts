@@ -1,17 +1,12 @@
 'use server'
 
-import { INTERNAL_SERVER_ERROR } from "@/constants/messages/error/responses"
-import prisma from "../../../../../prisma"
-import { SectionRBA } from "@/interfaces/rba/create/section"
+import prisma from "../../../../prisma";
 
-export const createSection = async ({userId, name}: SectionRBA) => {
+export const deleteSection = async (id: number, userId: string | undefined) => {
   try {
 
-    await prisma.sectionRBA.create({
-      data: {
-        name,
-        userId
-      }
+    await prisma.sectionRBA.delete({
+      where: {id}
     })
 
     const data = await prisma.sectionRBA.findMany({
@@ -26,11 +21,14 @@ export const createSection = async ({userId, name}: SectionRBA) => {
             description: true
           }
         }
+      },
+      orderBy: {
+        createdAt: "asc"
       }
     })
 
     return {
-      text: "Seccón creada correctamente.",
+      text: "Sección eliminada correctamente.",
       severity: "success",
       data
     }

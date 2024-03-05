@@ -1,4 +1,4 @@
-import { createAccordion } from "@/actions/rba/create/accordion/create-accordion"
+import { createAccordion } from "@/actions/rba/accordion/create-accordion"
 import { CustomButton } from "@/components/custom/CustomButton"
 import { MessageInterface } from "@/interfaces/common/message"
 import { SectionOptions, SectionWithAccordions } from "@/interfaces/rba/create/section"
