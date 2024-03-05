@@ -4,6 +4,7 @@ import { RBATable } from "./RBATable"
 import { Dispatch, SetStateAction } from "react"
 
 interface Props {
+  sections: SectionOptions[]
   sectionsWithAccordions: SectionWithAccordions[]
   isEditable: boolean
   userId: string | undefined
@@ -11,13 +12,14 @@ interface Props {
   setSectionsWithAccordions: Dispatch<SetStateAction<SectionWithAccordions[]>>
 }
 
-export const BodyExampleEdit = ({sectionsWithAccordions, isEditable, userId, setSections, setSectionsWithAccordions}: Props) => {
+export const BodyExampleEdit = ({sectionsWithAccordions, isEditable, userId, setSections, setSectionsWithAccordions, sections}: Props) => {
 
   return (
     <>
       {
         isEditable ? (
           <RBATable 
+            sections={sections}
             sectionsWithAccordions={sectionsWithAccordions}
             userId={userId}
             setSections={setSections}
