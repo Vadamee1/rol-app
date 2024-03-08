@@ -1,14 +1,15 @@
 export interface User {
-  id?: number;
-  name: string;
-  secondNam?: string;
-  lastName: string;
-  nickname?: string;
-  email: string;
-  password?: string;
-  createdAt?: string;
-  updatedAt?: string;
-  deletedAt?: string;
+  id: string
+  name: string
+  secondName: string | null
+  lastName: string
+  nickname: string | null 
+  email?: string;
+  password?: string
+  image: string | null
+  createdAt?: string
+  updatedAt?: string
+  deletedAt?: string
 }
 
 export interface CreateUserType {

@@ -4,14 +4,17 @@ import { Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, image } 
 import Link from "next/link"
 import { PATHLOGIN } from "@/constants/paths/auth"
 import { logout } from "@/actions/auth/logout"
+import { PROFILEPATH } from "@/constants/paths/profile"
+import { User } from "@/interfaces/user"
 
 interface Props {
   isAuthenticated: boolean
   image: string | null | undefined
   name: string | undefined | null
+  userId: string| undefined
 }
 
-export const AvatarDropdown = ({isAuthenticated, image, name}: Props) => {
+export const AvatarDropdown = ({isAuthenticated, image, name, userId}: Props) => {
 
   return (
     <Dropdown>
@@ -30,7 +33,7 @@ export const AvatarDropdown = ({isAuthenticated, image, name}: Props) => {
         {
           isAuthenticated ? (
             <DropdownMenu aria-label="Avatar options">
-              <DropdownItem key="">Editar perfil</DropdownItem>
+              <DropdownItem key="" as={Link} href={`${PROFILEPATH}/${userId}`}>Perfil</DropdownItem>
               <DropdownItem key="logout" onClick={() => logout()} >Cerrar sesión</DropdownItem>
             </DropdownMenu>
           ) : (
