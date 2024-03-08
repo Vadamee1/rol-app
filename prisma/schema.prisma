@@ -20,9 +20,24 @@ model User {
   updatedAt      DateTime  @updatedAt @map("updated_at")
   deletedAt      DateTime? @map("deleted_at")
 
+  profilePicture ProfilePicture[]
   sectionRBA SectionRBA[]
 
   @@map("user")
+}
+
+model ProfilePicture {
+  id          String    @id @default(uuid())
+  description String    @db.VarChar(1000)
+  url         String    @db.VarChar(255)
+  userId      String    @map("user_id")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("profile_picture")
 }
 
 model SectionRBA {

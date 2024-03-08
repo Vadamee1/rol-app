@@ -6,13 +6,12 @@ export default async function RolLayout({ children }: { children: React.ReactNod
 
   const session = await auth()
   const isAuthenticated = !!session?.user
-  const image = session?.user?.image
-  const name = session?.user?.name
+  const user = session?.user
 
   return (
     <>
       <div className="">
-        <Appbar isAuthenticated={isAuthenticated} image={image} name={name}/>
+        <Appbar isAuthenticated={isAuthenticated} image={user?.image} name={user?.name} userId={user?.id}/>
         <Divider />
         {children}
       </div>
