@@ -1,7 +1,10 @@
+import { AccordionRBA } from "./accordion"
+
 export interface SectionRBA {
   id?: number
   name: string
   userId?: string
+  accordionRBA?: AccordionRBA[]
   createdAt?: string
   updatedAt?: string
   deletedAt?: string

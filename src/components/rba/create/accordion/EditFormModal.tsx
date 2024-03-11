@@ -1,4 +1,7 @@
+import { updateAccordion } from "@/actions/rba/accordion/update-accordion"
 import { CustomButton } from "@/components/custom/CustomButton"
+import { HandleToast } from "@/constants/messages/Index"
+import { AccordionRBA } from "@/interfaces/rba/create/accordion"
 import { SectionOptions, SectionWithAccordions } from "@/interfaces/rba/create/section"
 import { Input, Select, SelectItem, Textarea } from "@nextui-org/react"
 import { useFormik } from "formik"
@@ -7,17 +10,20 @@ import * as yup from "yup"
 
 interface Props {
   sections: SectionOptions[]
-  userId?: string
+  accordion: AccordionRBA
+  sectionId: number | undefined
+  userId: string | undefined
   setSectionsWithAccordions: Dispatch<SetStateAction<SectionWithAccordions[]>>
 }
 
-export const EditFormModal = ({sections, userId, setSectionsWithAccordions}: Props) => {
+export const EditFormModal = ({accordion, sections, sectionId, userId, setSectionsWithAccordions}: Props) => {
 
   const formik = useFormik({
     initialValues: {
-      title: '',
-      description: '',
-      sectionRBAId: 0
+      title: accordion.title,
+      description: accordion.description,
+      sectionRBAId: sectionId,
+      id: accordion.id
     },
     validationSchema: yup.object().shape({
       title: yup.string().required('Debes ingresar un título.'),
@@ -25,6 +31,9 @@ export const EditFormModal = ({sections, userId, setSectionsWithAccordions}: Pro
       sectionRBAId: yup.number().required('Debes elegir a que sección pertenece.')
     }),
     onSubmit: async (values) => {
+      const resp = await updateAccordion(values, userId)
+      setSectionsWithAccordions(resp.data)
+      HandleToast(resp)
     }
   })
 
@@ -66,13 +75,13 @@ export const EditFormModal = ({sections, userId, setSectionsWithAccordions}: Pro
             onChange={formik.handleChange}
             errorMessage={formik.errors.description}
           />
-          <div className="flex justify-end">
+          <div className="flex justify-end mb-3">
             <CustomButton
               color="primary"
               variant="ghost"
               type="submit"
             >
-              Crear
+              Guardar
             </CustomButton>
           </div>
         </div>

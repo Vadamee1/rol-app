@@ -1,9 +1,9 @@
-import { SectionWithAccordions } from "@/interfaces/rba/create/section"
+import { SectionRBA, SectionWithAccordions } from "@/interfaces/rba/create/section"
 import { Tab, Tabs } from "@nextui-org/react"
 import { CustomAccordion } from "@/components/custom/CustomAccordion"
 
 interface Props {
-  sectionsWithAccordions: SectionWithAccordions[]
+  sectionsWithAccordions: SectionRBA[]
 }
 
 export const Example = ({sectionsWithAccordions}: Props) => {
@@ -13,7 +13,7 @@ export const Example = ({sectionsWithAccordions}: Props) => {
       <Tabs aria-label="Tabs de ejemplo" variant="underlined" color="warning">
         {sectionsWithAccordions.map((section) => (
           <Tab key={section.id} title={section.name}>
-            {section.accordionRBA.map((acc) => (
+            {section.accordionRBA && section.accordionRBA.map((acc) => (
               <div key={acc.id}>
                 <CustomAccordion title={acc.title} content={acc.description}/>
               </div>

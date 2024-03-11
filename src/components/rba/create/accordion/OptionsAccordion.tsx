@@ -2,16 +2,19 @@ import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Tooltip,
 import { IoEllipsisVerticalOutline } from "react-icons/io5"
 import { CustomModal } from "@/components/custom/CustomModal"
 import { BodyEditModal } from "./BodyEditModal"
-import { getAccordions } from "@/actions/rba/accordion/get-accordions"
+import { SectionOptions, SectionRBA, SectionWithAccordions } from "@/interfaces/rba/create/section"
+import { Dispatch, SetStateAction } from "react"
 
 interface Props {
-  sectionId: number | undefined
+  sections: SectionOptions[]
+  section: SectionRBA
+  userId: string | undefined
+  setSectionsWithAccordions: Dispatch<SetStateAction<SectionWithAccordions[]>>
 }
 
-export const OptionsAccordion = async ({sectionId}: Props) => {
+export const OptionsAccordion = ({section, sections, userId, setSectionsWithAccordions}: Props) => {
   
   const {isOpen, onOpen, onOpenChange, onClose} = useDisclosure()
-  const accordions = await getAccordions(sectionId)
 
   return (
     <>
@@ -32,10 +35,18 @@ export const OptionsAccordion = async ({sectionId}: Props) => {
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         header={<p>Editar acordeones:</p>}
+        size="4xl"
         body={
           <BodyEditModal
-            accordions={accordions}
+            setSectionsWithAccordions={setSectionsWithAccordions}
+            userId={userId}
+            sections={sections}
+            accordions={section.accordionRBA}
+            sectionId={section.id}
           />
+        }
+        footer={
+          <Button variant="flat" color="primary" onPress={onClose}>Aceptar</Button>
         }
       />
     </>

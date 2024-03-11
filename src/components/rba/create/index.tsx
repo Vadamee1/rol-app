@@ -23,7 +23,7 @@ export const CreateRulesPage = ({ userId, sectionOptions, sectionsWithAccordions
 
   return (
     <>
-      <div className="flex gap-5 w-full">
+      <div className="grid md:flex gap-5 w-full">
         <div className="flex flex-col gap-3 basis-2/5">
           <CustomCard 
             header={<p>Comienza creando las secciones en las que se dividirá:</p>} 

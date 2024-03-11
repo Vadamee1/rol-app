@@ -42,7 +42,10 @@ export const RBATable = ({sectionsWithAccordions, userId, setSections, setSectio
               userId={userId}
             />
             <OptionsAccordion
-              sectionId={section.id}
+              userId={userId}
+              sections={sections}
+              section={section}
+              setSectionsWithAccordions={setSectionsWithAccordions}
             />
           </div>
         )

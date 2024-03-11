@@ -7,15 +7,18 @@ interface Props {
   header: ReactNode
   body: ReactNode
   footer?: ReactNode
+  size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl"
 }
 
-export const CustomModal = ({isOpen, onOpenChange, header, body, footer}: Props) => {
+export const CustomModal = ({isOpen, onOpenChange, header, body, footer, size}: Props) => {
 
   return (
     <Modal
       isOpen={isOpen}
       onOpenChange={onOpenChange}
       backdrop="blur"
+      size={size ? size : "md"}
+      scrollBehavior="outside"
       motionProps={{
         variants: {
           enter: {
