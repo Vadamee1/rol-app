@@ -3,7 +3,7 @@ import Link from "next/link"
 import { IoHomeOutline } from "react-icons/io5"
 import { AvatarDropdown } from "./AvatarDropdown"
 import { PATHHOME } from "@/constants/paths/home"
-import { User } from "@/interfaces/user"
+import { SetTheme } from "./SetTheme"
 
 interface Props {
   isAuthenticated: boolean
@@ -22,6 +22,7 @@ export const Appbar = ({isAuthenticated, image, name, userId}: Props) => {
         </Link>
       </NavbarBrand>
       <NavbarContent justify="end">
+        <SetTheme/>
         <AvatarDropdown isAuthenticated={isAuthenticated} image={image} name={name} userId={userId}/>
       </NavbarContent>
     </Navbar>

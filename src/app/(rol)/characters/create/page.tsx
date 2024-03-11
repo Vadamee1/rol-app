@@ -1,9 +1,7 @@
 export default function CreateRBA () {
   return (
-    <>
-      <div>
-        Create
-      </div>
-    </>
+    <div>
+      <h1>Añadir personajes</h1>
+    </div>
   )
 }

@@ -16,12 +16,14 @@ model User {
   email          String    @db.VarChar(50) @unique
   password       String    @db.VarChar(100)
   image          String?   @db.VarChar(255)
+  theme          String?   @db.VarChar(25)
   createdAt      DateTime  @default(now()) @map("created_at")
   updatedAt      DateTime  @updatedAt @map("updated_at")
   deletedAt      DateTime? @map("deleted_at")
 
   profilePicture ProfilePicture[]
   sectionRBA SectionRBA[]
+  character Character[]
 
   @@map("user")
 }
@@ -66,4 +68,24 @@ model AccordionRBA {
   sectionRBA SectionRBA @relation(fields: [sectionRBAId], references: [id], onDelete: Cascade)
 
   @@map("accordion_rba")
+}
+
+model Character {
+  id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(50)
+  nickname    String?   @db.VarChar(50)
+  age         String?   @db.VarChar(10)
+  occupation  String?   @db.VarChar(50)
+  race        String?   @db.VarChar(50)
+  fandom      String?   @db.VarChar(50)
+  image       String?   @db.VarChar(255)
+  description String?   @db.VarChar(1000)
+  userId      String    @db.VarChar(255)
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("character")
 }

@@ -1,10 +1,11 @@
 'use client'
 
-import {NextUIProvider} from '@nextui-org/react'
+import { NextUIProvider } from '@nextui-org/react'
+import { ThemeProvider as NextThemesProvider } from "next-themes"
 import { SessionProvider } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { ToastContainer } from 'react-toastify'
-import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css"
 
 export function Providers({children}: { children: React.ReactNode }) {
   const router = useRouter()
@@ -12,8 +13,10 @@ export function Providers({children}: { children: React.ReactNode }) {
   return (
     <SessionProvider>
       <NextUIProvider navigate={router.push}>
-        <ToastContainer theme='dark'/>
-        {children}
+        <NextThemesProvider attribute='class' defaultTheme='dark'>
+          <ToastContainer theme='dark'/>
+          {children}
+        </NextThemesProvider>
       </NextUIProvider>
     </SessionProvider>
   )

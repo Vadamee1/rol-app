@@ -25,6 +25,17 @@ const config: Config = {
           colors: {
             background: "#000000"
           }
+        },
+        yellow: {
+          colors: {
+            background: "#000000",
+            foreground: "#FFFFFF",
+            primary: "#F5A524",
+            secondary: "#920B3A",
+            success: "#17c964",
+            warning: "#f5a524",
+            danger: "#f31260"
+          }
         }
       }
     })
