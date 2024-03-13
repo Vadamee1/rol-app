@@ -14,7 +14,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
     <html lang="en" className="dark">
       <body className={inter.className}>
         <Providers>
-          <main style={{height: "100%", minHeight: "100vh"}} >
+          <main style={{height: "100%", minHeight: "100vh"}} className="" >
             {children}
           </main>
         </Providers>

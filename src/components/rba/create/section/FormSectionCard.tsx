@@ -27,7 +27,7 @@ export const FormSectionCard = ({userId, setSections, setSectionsWithAccordions}
       name: yup.string().required('Debes ingresar un nombre')
     }),
     onSubmit: async (values) => {
-      const resp = await createSection(values)
+      const resp = await createSection(values.userId, values.name)
       setSections(resp.data)
       setSectionsWithAccordions(resp.data)
       handleToast(resp)

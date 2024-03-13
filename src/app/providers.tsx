@@ -13,10 +13,8 @@ export function Providers({children}: { children: React.ReactNode }) {
   return (
     <SessionProvider>
       <NextUIProvider navigate={router.push}>
-        <NextThemesProvider attribute='class' defaultTheme='dark'>
-          <ToastContainer theme='dark'/>
-          {children}
-        </NextThemesProvider>
+        <ToastContainer theme='dark'/>
+        {children}
       </NextUIProvider>
     </SessionProvider>
   )

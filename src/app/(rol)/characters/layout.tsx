@@ -2,7 +2,7 @@ export default async function CharactersLayout({ children }: { children: React.R
 
   return (
     <>
-      <div className="p-5">
+      <div className="flex p-5">
         {children}
       </div>
     </>

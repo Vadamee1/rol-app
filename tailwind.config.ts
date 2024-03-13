@@ -9,13 +9,7 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-    },
+    extend: {},
   },
   darkMode: "class",
   plugins: [
@@ -23,7 +17,8 @@ const config: Config = {
       themes: {
         dark: {
           colors: {
-            background: "#000000"
+            background: "#000000",
+            primary: "#002E62"
           }
         },
         yellow: {

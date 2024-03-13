@@ -1,9 +1,8 @@
 'use server'
 
-import { SectionRBA } from "@/interfaces/rba/create/section"
 import prisma from "../../../../prisma"
 
-export const createSection = async ({userId, name}: SectionRBA) => {
+export const createSection = async (userId: string, name: string) => {
   try {
 
     await prisma.sectionRBA.create({
