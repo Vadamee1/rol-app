@@ -1,11 +1,19 @@
-import { REDIRECTOPTIONS } from "@/constants/home/redirectOptions"
-import { CustomListbox } from "../custom/CustomListbox"
+'use client'
 
-export const Body = () => {
+import { Listbox, ListboxItem } from "@nextui-org/react"
+
+interface Props {
+  userId: string
+}
+
+export const Body = ({userId}: Props) => {
 
   return (
     <>
-      <CustomListbox items={REDIRECTOPTIONS}/>
+      <Listbox aria-label="Listbox redirect">
+        <ListboxItem key="editRBa" color="danger" href="/rba/edit">Editar "Read before add"</ListboxItem>
+        <ListboxItem key="characters" color="danger" href={`/characters/${userId}/create`}>Añadir fichas de personaje</ListboxItem>
+      </Listbox>
     </>
   )
 }

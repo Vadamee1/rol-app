@@ -5,16 +5,17 @@ import Link from "next/link"
 
 interface Props {
   character: Character
+  userId: string
 }
 
-export const SingleCharacterCard = ({character}: Props) => {
+export const SingleCharacterCard = ({character, userId}: Props) => {
 
   return (
     <Card
       className="border-none"
       isPressable
       as={Link}
-      href="/home"
+      href={`/characters/${userId}/${character.id}`}
     >
       <CustomImage
         alt="Imagen de la ficha"

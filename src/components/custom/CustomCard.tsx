@@ -7,12 +7,13 @@ interface Props {
   footer?: ReactNode
   isBlurred?: boolean
   isPressable?: boolean
+  className?: string
 }
 
-export const CustomCard = ({header, body, footer, isBlurred, isPressable}: Props) => {
+export const CustomCard = ({header, body, footer, isBlurred, isPressable, className}: Props) => {
 
   return (
-    <Card isBlurred={isBlurred ? isBlurred : false} isPressable={isPressable ? isPressable : false}>
+    <Card isBlurred={isBlurred ? isBlurred : false} isPressable={isPressable ? isPressable : false} className={className}>
       { 
         header ? 
           <CardHeader>

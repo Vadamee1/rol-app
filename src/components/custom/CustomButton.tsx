@@ -8,9 +8,10 @@ interface Props {
   color?: "default" | "warning" | "primary" | "danger"
   type?: "submit" | "button"
   variant?: "solid" | "bordered" | "ghost"
+  className?: string
 }
 
-export const CustomButton = ({children, isIconOnly, size, color, type, variant}: Props) => {
+export const CustomButton = ({children, isIconOnly, size, color, type, variant, className}: Props) => {
 
   return (
     <Button
@@ -19,6 +20,7 @@ export const CustomButton = ({children, isIconOnly, size, color, type, variant}:
       size={size}
       color={color}
       variant={variant ? variant : "solid"}
+      className={className}
     >
       {children}
     </Button>

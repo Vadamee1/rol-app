@@ -23,3 +23,28 @@ export const getCharacters = async (userId: string) => {
     throw new Error("No se logró.");
   }
 }
+
+export const getOneCharacter = async (id: string) =>  {
+  try {
+
+    const data = await prisma.character.findFirst({
+      where: { id: Number(id) },
+      select: {
+        id: true,
+        name: true,
+        nickname: true,
+        age: true,
+        race: true,
+        occupation: true,
+        fandom: true,
+        description: true,
+        image: true
+      },
+    })
+
+    return data
+
+  } catch (error) {
+    throw new Error("No se logró.");
+  }
+}

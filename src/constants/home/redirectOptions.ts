@@ -11,6 +11,6 @@ export const REDIRECTOPTIONS: ListboxItemType[] = [
     key: "characters",
     content: "Añadir fichas de personaje",
     color: "danger",
-    href: "/characters/create"
+    href: "/characters"
   }
 ]

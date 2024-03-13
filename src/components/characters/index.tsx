@@ -23,7 +23,7 @@ export const Characters = ({userId, characters}: Props) => {
         {
           charactersState.map((character) => (
             <div key={character.id}>
-              <SingleCharacterCard character={character}/>
+              <SingleCharacterCard character={character} userId={userId}/>
             </div>
           ))
         }
