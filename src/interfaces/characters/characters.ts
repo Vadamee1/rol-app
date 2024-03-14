@@ -15,6 +15,7 @@ export type Character = {
 }
 
 export type CreateCharacter = {
+  id?: number
   name: string
   nickname: string
   age: string
@@ -24,4 +25,6 @@ export type CreateCharacter = {
   description: string
   userId: string
 }
+
+
 

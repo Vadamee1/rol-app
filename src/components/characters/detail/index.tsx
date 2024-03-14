@@ -8,9 +8,10 @@ import { slantedText } from "@/config/fonts"
 interface Props {
   character: Character | null
   isOwner: boolean
+  userId: string
 }
 
-export const DetailCharacter = ({character, isOwner}: Props) => {
+export const DetailCharacter = ({character, isOwner, userId}: Props) => {
 
   return (
     <div className="flex items-center justify-center h-full gap-4">
@@ -19,7 +20,7 @@ export const DetailCharacter = ({character, isOwner}: Props) => {
           <CustomCard
              header={<HeaderImage character={character}/>}
              body={<BodyContent character={character} />}
-             footer={<FooterButton/>}
+             footer={<FooterButton characterId={character?.id} userId={userId} />}
           />
         ) : (
           <CustomCard
@@ -33,7 +34,7 @@ export const DetailCharacter = ({character, isOwner}: Props) => {
           header={<p>Descripción</p>}
           footer={
             character?.description ? (
-              <p className="w-96">{character?.description}</p>
+              <p className="w-96 hyphens-auto	">{character?.description}</p>
             ) : (
               <p className={`flex w-96 h-full ${slantedText.className} justify-center`}>No hay descripción, agrega una.</p>
             )

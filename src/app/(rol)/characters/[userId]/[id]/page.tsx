@@ -15,7 +15,7 @@ export default async function Page ({params}: {params:{userId: string, id: strin
 
   return (
     <div className="w-full">
-      <DetailCharacter character={character} isOwner={isOwner}/>
+      <DetailCharacter character={character} isOwner={isOwner} userId={userPage}/>
     </div>
   )
 }

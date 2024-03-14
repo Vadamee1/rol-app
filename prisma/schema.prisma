@@ -79,7 +79,7 @@ model Character {
   race        String?   @db.VarChar(50)
   fandom      String?   @db.VarChar(50)
   image       String?   @db.VarChar(255)
-  description String?   @db.VarChar(1000)
+  description String?   @db.VarChar(6000)
   userId      String    @db.VarChar(255)
   createdAt   DateTime  @default(now()) @map("created_at")
   updatedAt   DateTime  @updatedAt @map("updated_at")
