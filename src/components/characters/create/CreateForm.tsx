@@ -50,7 +50,7 @@ export const CreateForm = ({userId, setCharacter}: Props) => {
   return (
     <form onSubmit={formik.handleSubmit}>
       <div className="grid gap-3">
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid sm:grid-cols-2 gap-3">
           <Input
             isRequired
             label="Nombre"

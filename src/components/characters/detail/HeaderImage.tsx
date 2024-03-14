@@ -9,16 +9,18 @@ interface Props {
 export const HeaderImage = ({character}: Props) => {
 
   return (
-    <div className="grid gap-4">
+    <div className="grid gap-4 w-full">
       <p className="flex justify-center">{character?.name}</p>
-      <CustomImage
-        alt="Character photo"
-        src={character?.image ? character.image : "/images/profile/NotImage.jpg"} 
-        height={200}
-        width={200}
-        priority
-      />
-      <Divider className="mt-4"/>
+      <div className="grid justify-center w-full">
+        <CustomImage
+          alt="Character photo"
+          src={character?.image ? character.image : "/images/profile/NotImage.jpg"} 
+          height={200}
+          width={200}
+          priority
+        />
+        <Divider className="mt-4 w-full"/>
+      </div>
     </div>
   )
 }

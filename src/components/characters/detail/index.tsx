@@ -14,23 +14,25 @@ interface Props {
 export const DetailCharacter = ({character, isOwner, userId}: Props) => {
 
   return (
-    <div className="flex items-center justify-center h-full gap-4">
+    <div className="md:flex items-center justify-center h-full gap-4">
       {
         isOwner ? (
           <CustomCard
              header={<HeaderImage character={character}/>}
              body={<BodyContent character={character} />}
              footer={<FooterButton characterId={character?.id} userId={userId} />}
+             className="mb-5 md:mb-auto"
           />
         ) : (
           <CustomCard
+            className="md:mb-5"
             header={<HeaderImage character={character}/>}
             body={<BodyContent character={character} />}
           />
         )
       }
       <CustomCard
-          className="h-full"
+          className="md:h-full"
           header={<p>Descripción</p>}
           footer={
             character?.description ? (

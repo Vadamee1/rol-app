@@ -15,11 +15,11 @@ export const Characters = ({userId, characters}: Props) => {
   const [charactersState, setCharacters] = useState(characters)
 
   return (
-    <div className="flex gap-5">
-      <div className="basis-1/2">
+    <div className="md:flex gap-5">
+      <div className="basis-1/2 mb-5">
         <CreateCharacterCard userId={userId} setCharacter={setCharacters}/>
       </div>
-      <div className="grid grid-cols-3 basis-1/2 justify-between gap-5">
+      <div className="grid justify-center md:grid-cols-3 basis-1/2 md:justify-between gap-5">
         {
           charactersState.map((character) => (
             <div key={character.id}>
